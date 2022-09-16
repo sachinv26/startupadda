@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3
   pandabar: ^0.1.1
+  fab_circular_menu: ^1.0.2
 
 dev_dependencies:
   flutter_test:
