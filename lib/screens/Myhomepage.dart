@@ -18,19 +18,13 @@ class _MyhomePageState extends State<MyhomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          centerTitle: true,
+          title: Text('StartupADDA'),
+        ),
+        body: SingleChildScrollView(
 
-            Text(
-              "$Counter",
-              style: TextStyle(
-                fontSize: 60,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
         ),
         floatingActionButton: Builder(
           builder: (context) => FabCircularMenu(

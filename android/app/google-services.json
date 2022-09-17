@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "590687055769",
+    "project_id": "startupadda-dc02f",
+    "storage_bucket": "startupadda-dc02f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590687055769:android:3ab4afdcb4e2e266dc2d08",
+        "android_client_info": {
+          "package_name": "www.startupadda.com.startupadda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590687055769-4cuha9d7gnkvl3ruj60ne64d5fhpu31h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1A9F2UGHo4SR2y3GKfveKLjWPFee8Htg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590687055769-4cuha9d7gnkvl3ruj60ne64d5fhpu31h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
