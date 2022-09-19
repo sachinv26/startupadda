@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pandabar/pandabar.dart';
+import 'package:fab_circular_menu/fab_circular_menu.dart';
 
 class MyhomePage extends StatefulWidget {
   const MyhomePage({Key? key}) : super(key: key);
@@ -9,75 +10,88 @@ class MyhomePage extends StatefulWidget {
 }
 
 class _MyhomePageState extends State<MyhomePage> {
-  String page = 'Grey';
+  int Counter = 0;
+  String IsOpened="No";
+  String BtnText ="OpenMenu";
+  final GlobalKey<FabCircularMenuState> fabKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appbar can  be edited here
         appBar: AppBar(
+          backgroundColor: Colors.blue,
           centerTitle: true,
-          title: const Text(
-            "Startup Adda",
-            style: TextStyle(fontSize: 22),
-          ),
-          leading: Icon(Icons.back_hand),
+          title: Text('StartupADDA'),
         ),
-        // cureved navigation bar
-        bottomNavigationBar: PandaBar(
-          buttonData: [
-            PandaBarButtonData(
-                id: 'Grey',
-                icon: Icons.dashboard,
-                title: 'Grey'
-            ),
-            PandaBarButtonData(
-                id: 'Blue',
-                icon: Icons.book,
-                title: 'Blue'
-            ),
-            PandaBarButtonData(
-                id: 'Red',
-                icon: Icons.account_balance_wallet,
-                title: 'Red'
-            ),
-            PandaBarButtonData(
-                id: 'Yellow',
-                icon: Icons.notifications,
-                title: 'Yellow'
-            ),
-          ],
-          onChange: (id) {
-            setState(() {
-              page = id;
-            });
-          },
-          onFabButtonPressed: () {
+        body: SingleChildScrollView(
 
-          },
         ),
-        // //floatingActionButton: FloatingActionButton(
-        //   elevation: 10.0,
-        //   child: const Icon(Icons.add),
-        //   onPressed: () {
-        //     // action on button press
-        //   },
-        // ),
-        body: Builder(
-          builder: (context) {
-            switch (page) {
-              case 'Grey':
-                return Container(child: Center(child: Text("PAGE 1")));
-              case 'Blue':
-                return Container(child: Center(child: Text("PAGE 2")));
-              case 'Red':
-                return Container(child: Center(child: Text("PAGE 3")));
-              case 'Yellow':
-                return Container(child: Center(child: Text("PAGE 4")));
-              default:
-                return Container();
-            }
-          },
+        floatingActionButton: Builder(
+          builder: (context) => FabCircularMenu(
+              key: fabKey,
+              alignment: Alignment.bottomCenter,
+              ringColor: Colors.teal,
+              ringDiameter: 455.0,
+              ringWidth: 80.0,
+              fabSize: 50.0,
+              fabElevation: 8.0,
+              fabColor: Colors.green,
+              fabOpenIcon: Icon(Icons.menu, color:Colors.white),
+              fabCloseIcon: Icon(Icons.close, color:Colors.red),
+              fabMargin: const EdgeInsets.all(20.0),
+              animationDuration: const Duration(milliseconds: 800),
+              animationCurve: Curves.easeInOutCirc,
+              onDisplayChange: (isOpen) {
+                if(isOpen){
+                  setState(() {
+                    IsOpened="Yes";
+                  });
+                }
+                else{
+                  setState(() {
+                    IsOpened="No";
+                  });
+                }
+              },
+              children: [
+                FloatingActionButton(
+                  heroTag:"FAB_Plus_1",
+                  child:Icon(Icons.plus_one),
+                  onPressed:(){
+                    setState(() {
+                      Counter=Counter+1;
+                    });
+                  },
+                ),
+                FloatingActionButton(
+                  heroTag:"FAB_Plus_1",
+                  child:Icon(Icons.plus_one),
+                  onPressed:(){
+                    setState(() {
+                      Counter=Counter+1;
+                    });
+                  },
+                ),
+                FloatingActionButton(
+                  heroTag:"FAB_Plus_1",
+                  child:Icon(Icons.plus_one),
+                  onPressed:(){
+                    setState(() {
+                      Counter=Counter+1;
+                    });
+                  },
+                ),
+                FloatingActionButton(
+                  heroTag:"FAB_Plus_1",
+                  child:Icon(Icons.plus_one),
+                  onPressed:(){
+                    setState(() {
+                      Counter=Counter+1;
+                    });
+                  },
+                ),
+              ],
+          ),
         ),
       ),
     );
