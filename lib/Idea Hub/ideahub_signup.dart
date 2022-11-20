@@ -101,7 +101,7 @@ class _IdeaHubSignupScreenState extends State<IdeaHubSignupScreen> {
                 height: 24,
               ),
               passFieldInput(
-                hintText: 'enter your password',
+                hintText: 'enter your password buddy',
                 textInputType: TextInputType.text,
                 textEditingController: _passwordController,
 
