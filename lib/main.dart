@@ -100,7 +100,7 @@ class _MyhomePageState extends State<MyhomePage> {
                     width: 100,
                     child: ElevatedButton(
                       onPressed: () {
-                          Navigator.push(context,MaterialPageRoute(builder: (context)=>Category()));
+                          Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginRegisterPage()));
                       },
                       child: Text('Lets Go'),
                       style: ElevatedButton.styleFrom(

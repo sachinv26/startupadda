@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:startupadda/auth_screens/auth_methods.dart';
 
-
-
 class IdeaHubHome extends StatefulWidget {
   const IdeaHubHome({Key? key}) : super(key: key);
 
@@ -26,8 +24,6 @@ class _IdeaHubHomeState extends State<IdeaHubHome> {
               AuthMethods().signOut(context);
 
             }, child: Text('signout'))
-
-
           ],
         )
         ),

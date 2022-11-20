@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:startupadda/Idea%20Hub/ideahub_signup.dart';
+import 'package:startupadda/auth_screens//signup.dart';
 import 'package:startupadda/auth_screens/auth_methods.dart';
 import 'package:startupadda/widgets/text_input_field.dart';
-import './ideahub_homepage.dart';
-
+import '../Idea Hub/ideahub_homepage.dart';
+import 'package:startupadda/categorypage.dart';
 
 class IdeaHubLoginScreen extends StatefulWidget {
   const IdeaHubLoginScreen({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _IdeaHubLoginScreenState extends State<IdeaHubLoginScreen> {
         email: _emailController.text, password: _passwordController.text);
     if (res == 'success') {
       Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => IdeaHubHome()),
+        MaterialPageRoute(builder: (context) => Category()),
       );
 
       setState(() {
@@ -65,14 +65,6 @@ class _IdeaHubLoginScreenState extends State<IdeaHubLoginScreen> {
                 child: Container(),
                 flex: 2,
               ),
-              Text(
-                'Idea Hub Login',
-                style: TextStyle(
-                  fontSize: 35,
-                  color: buttonColor,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
               const Text(
                 'Login',
                 style: TextStyle(
@@ -82,7 +74,7 @@ class _IdeaHubLoginScreenState extends State<IdeaHubLoginScreen> {
               ),
               const SizedBox(height: 45),
               TextInputField(
-                labelText: 'enter your email brother',
+                labelText: 'enter your email brothers',
                 controller: _emailController,
                 icon: Icons.mail_rounded,
               ),
@@ -90,10 +82,9 @@ class _IdeaHubLoginScreenState extends State<IdeaHubLoginScreen> {
                 height: 24,
               ),
               passFieldInput(
-                hintText: 'Enter your password buddy',
+                hintText: 'Enter your password ',
                 textInputType: TextInputType.text,
                 textEditingController: _passwordController,
-
               ),
               const SizedBox(
                 height: 24,

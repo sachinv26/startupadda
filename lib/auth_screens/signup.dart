@@ -71,14 +71,6 @@ class _IdeaHubSignupScreenState extends State<IdeaHubSignupScreen> {
                 child: Container(),
                 flex: 2,
               ),
-              Text(
-                'Idea Hub',
-                style: TextStyle(
-                  fontSize: 35,
-                  color: Colors.red,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
               const Text(
                 'Signup',
                 style: TextStyle(

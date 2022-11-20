@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:startupadda/Idea%20Hub/ideahub_homepage.dart';
+import 'package:startupadda/Investor%20Hub/investor_homepage.dart';
 import './auth_screens/login_register_query.dart';
-
+import 'package:startupadda/Entreprenuerial Hub/Entrepreneurial_home.dart';
 class Category extends StatelessWidget {
   const Category({Key? key}) : super(key: key);
 
@@ -13,7 +15,7 @@ class Category extends StatelessWidget {
         height: 40,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginRegisterPage()));
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>EntrepreneurHomePage()));
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.brown,
@@ -36,7 +38,7 @@ class Category extends StatelessWidget {
         height: 40,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginRegisterPage()));
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>IdeaHubHome()));
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.brown,
@@ -59,7 +61,7 @@ class Category extends StatelessWidget {
         height: 40,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginRegisterPage()));
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>InvestorHomePage()));
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.brown,

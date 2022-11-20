@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:startupadda/Idea%20Hub/ideahub_signup.dart';
-import 'package:startupadda/Idea%20Hub/ideahub_login.dart';
+import 'package:startupadda/auth_screens//signup.dart';
+import 'package:startupadda/auth_screens/login.dart';
 class LoginRegisterPage extends StatefulWidget {
   const LoginRegisterPage({Key? key}) : super(key: key);
 
