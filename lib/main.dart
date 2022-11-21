@@ -171,7 +171,7 @@ class Onboard {
 final List<Onboard> demo_data = [
   Onboard(
       image: "assets/images/Startup1.png",
-      title: "first title",
+      title: "We Have the plan to grow your business",
       description: "first description"),
   Onboard(
       image: "assets/images/Startup1.png",

@@ -74,7 +74,7 @@ class _IdeaHubLoginScreenState extends State<IdeaHubLoginScreen> {
               ),
               const SizedBox(height: 45),
               TextInputField(
-                labelText: 'enter your email brothers',
+                labelText: 'enter your email',
                 controller: _emailController,
                 icon: Icons.mail_rounded,
               ),

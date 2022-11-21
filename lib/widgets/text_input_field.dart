@@ -158,7 +158,7 @@ class passFieldInput extends StatelessWidget {
       // maxLength: 7,
       controller: textEditingController,
       decoration: InputDecoration(
-        labelText: "enter your friend's password",
+        labelText: "enter your  password",
         prefixIcon: Icon(Icons.security),
         labelStyle: const TextStyle(
           fontSize: 20,
