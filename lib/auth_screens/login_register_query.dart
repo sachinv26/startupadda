@@ -67,35 +67,47 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    height: MediaQuery.of(context).size.height / 2,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/Startup1.png"),
-                          fit: BoxFit.scaleDown),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.blue,
+              Colors.red,
+            ],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      height: MediaQuery.of(context).size.height / 2,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/Startup1.png"),
+                            fit: BoxFit.scaleDown),
+                      ),
                     ),
-                  ),
-                  ListView(
-                    shrinkWrap: true,
-                    padding: EdgeInsets.only(right: 10.0, left: 10.0),
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[loginbutton, registerbutton],
-                      )
-                    ],
-                  )
-                ],
+                    ListView(
+                      shrinkWrap: true,
+                      padding: EdgeInsets.only(right: 10.0, left: 10.0),
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[loginbutton, registerbutton],
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),

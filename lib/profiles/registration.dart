@@ -1,30 +1,20 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
-class AddIdea extends StatefulWidget {
+class RegisterProfile extends StatefulWidget {
   @override
-  State<AddIdea> createState() => _AddIdeaState();
+  State<RegisterProfile> createState() => _RegisterProfileState();
 }
 
 String? title;
 
-class _AddIdeaState extends State<AddIdea> {
+class _RegisterProfileState extends State<RegisterProfile> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-          ],
-        ),
-      ),
+    return Scaffold(
+      body: SafeArea(child: UploadForm()),
     );
   }
 }
@@ -40,20 +30,34 @@ String? chosenValue;
 String? projectname;
 
 class _UploadFormState extends State<UploadForm> {
+  String dropdownvalue = 'Developers';
+
+  var items = [
+    'Developers',
+    'Consultants',
+    'Managers',
+    'Electricians',
+    'Chefs',
+    'HR',
+    'Designer',
+    'Teachers'
+  ];
+
+  final TextEditingController phController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController domainController = TextEditingController();
+  // final TextEditingController domainController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController reqController = TextEditingController();
+  final TextEditingController lprofileController = TextEditingController();
   bool _isLoading = false;
   @override
   void dispose() {
     super.dispose();
     descriptionController.dispose();
     nameController.dispose();
-    domainController.dispose();
+    phController.dispose();
     emailController.dispose();
-    reqController.dispose();
+    lprofileController.dispose();
   }
 
   @override
@@ -64,18 +68,72 @@ class _UploadFormState extends State<UploadForm> {
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
+            const Center(
+              child: Text(
+                'Register',
+                style: TextStyle(
+                  fontSize: 35,
+                  //   color: Colors.red,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  DropdownButton(
+                    // Initial Value
+                    value: dropdownvalue,
 
+                    // Down Arrow Icon
+                    icon: const Icon(Icons.keyboard_arrow_down),
 
-
+                    // Array list of items
+                    items: items.map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    // After selecting the desired option,it will
+                    // change button value to selected value
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        dropdownvalue = newValue!;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
             TextField(
-              controller: reqController,
+              controller: nameController,
               onChanged: (String value) {
                 title = value;
               },
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 // hintText: 'Description',
-                labelText: 'Requirements',
+                labelText: 'Name',
+                icon: Icon(Icons.title),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            TextField(
+              controller: phController,
+              onChanged: (String value) {
+                title = value;
+              },
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                // hintText: 'Description',
+                labelText: 'Phone No.',
                 icon: Icon(Icons.title),
               ),
             ),
@@ -87,7 +145,7 @@ class _UploadFormState extends State<UploadForm> {
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 // hintText: 'Description',
-                labelText: 'email',
+                labelText: 'Email',
                 icon: Icon(Icons.real_estate_agent_sharp),
               ),
             ),
@@ -99,7 +157,7 @@ class _UploadFormState extends State<UploadForm> {
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 // hintText: 'Description',
-                labelText: 'Description',
+                labelText: ' Brief Description about yourself',
                 icon: Icon(Icons.description),
               ),
               maxLines: 3,
@@ -107,38 +165,26 @@ class _UploadFormState extends State<UploadForm> {
             const SizedBox(
               height: 10,
             ),
-
             TextField(
-              controller: nameController,
+              controller: lprofileController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Name',
+                labelText: 'Linkedin Profile',
                 icon: Icon(Icons.location_on),
               ),
             ),
             const SizedBox(
               height: 10,
             ),
-            TextField(
-              controller: domainController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Domain',
-                icon: Icon(Icons.location_city),
-              ),
-            ),
-
-            //   ShowAmenities(),
-            AddIdea(),
             MaterialButton(
                 color: Colors.red,
                 child: !_isLoading
                     ? Text(
-                  'Add Idea',
-                )
+                        'Add Idea',
+                      )
                     : CircularProgressIndicator(
-                  color: Colors.white,
-                ),
+                        color: Colors.white,
+                      ),
                 onPressed: () async {
                   //showSnackBar(context);
 
@@ -146,27 +192,28 @@ class _UploadFormState extends State<UploadForm> {
                     _isLoading = true;
                   });
 
-                  register_property(
+                  register_user(
+                      dropdownvalue,
                       nameController.text,
+                      phController.text,
                       descriptionController.text,
-                      reqController.text,
-                      domainController.text,
-                      emailController.text);
+                      emailController.text,
+                      lprofileController.text);
                   emailController.clear();
                   nameController.clear();
                   descriptionController.clear();
-                  domainController.clear();
+                  phController.clear();
 
                   setState(() {
                     _isLoading = false;
                   });
                   showSnackBar(context, 'Idea Added');
+
                   Navigator.pop(context);
                 }),
           ],
         ),
       ),
-
     );
   }
 }
@@ -179,21 +226,21 @@ showSnackBar(BuildContext context, String text) {
   );
 }
 
-void register_property(
-    String name,
-    String description,
-    String req,
-    String domain,
-    String email,
-    ) async {
+void register_user(
+  String category,
+  String name,
+  String ph,
+  String email,
+  String desc,
+  String linkedin,
+) async {
   await FirebaseFirestore.instance
-      .collection('ideahub')
-
-      .add({
-    'description': description,
-    'name':name,
-    'req':req,
-    'domain':domain,
-    'email':email
+      .collection(category)
+        .add({
+    'linkedin': linkedin,
+    'name': name,
+    'ph': ph,
+    'desc': desc,
+    'email': email
   });
 }

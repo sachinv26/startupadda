@@ -60,103 +60,115 @@ class _IdeaHubSignupScreenState extends State<IdeaHubSignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
-          width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children:[
-              Flexible(
-                child: Container(),
-                flex: 2,
-              ),
-              const Text(
-                'Signup',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.blue,
+              Colors.red,
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children:[
+                Flexible(
+                  child: Container(),
+                  flex: 2,
                 ),
-              ),
-              const SizedBox(height: 45),
-              TextInputField(controller: _name, labelText: 'enter your good name', icon: Icons.person,  ),
-
-              const SizedBox(
-                height: 24,
-              ),
-              TextInputField(
-                labelText: 'enter your email',
-                controller: _emailController,
-                icon: Icons.mail_rounded,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              passFieldInput(
-                hintText: 'enter your password buddy',
-                textInputType: TextInputType.text,
-                textEditingController: _passwordController,
-
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-
-              const SizedBox(
-                height: 24,
-              ),
-              InkWell(
-                onTap: signUpUser,
-                child: Container(
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: const ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
-                    ),
-                    color: Colors.blue,
-                  ),
-                  child: !_isLoading
-                      ? const Text(
-                    'Sign up',
-                  )
-                      : const CircularProgressIndicator(
-                    color: Colors.red,
+                const Text(
+                  'Signup',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              Flexible(
-                child: Container(),
-                flex: 2,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    child: const Text(
-                      'Already have an account?',
+                const SizedBox(height: 45),
+                TextInputField(controller: _name, labelText: 'enter your good name', icon: Icons.person,  ),
+
+                const SizedBox(
+                  height: 24,
+                ),
+                TextInputField(
+                  labelText: 'enter your email',
+                  controller: _emailController,
+                  icon: Icons.mail_rounded,
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                passFieldInput(
+                  hintText: 'enter your password buddy',
+                  textInputType: TextInputType.text,
+                  textEditingController: _passwordController,
+
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+
+                const SizedBox(
+                  height: 24,
+                ),
+                InkWell(
+                  onTap: signUpUser,
+                  child: Container(
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    decoration: const ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4)),
+                      ),
+                      color: Colors.blue,
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: !_isLoading
+                        ? const Text(
+                      'Sign up',
+                    )
+                        : const CircularProgressIndicator(
+                      color: Colors.red,
+                    ),
                   ),
-                  GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: Container(
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Flexible(
+                  child: Container(),
+                  flex: 2,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
                       child: const Text(
-                        ' Login.',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        'Already have an account?',
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 8),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: Container(
+                        child: const Text(
+                          ' Login.',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

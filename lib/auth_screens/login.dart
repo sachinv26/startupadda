@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:startupadda/auth_screens//signup.dart';
 import 'package:startupadda/auth_screens/auth_methods.dart';
 import 'package:startupadda/widgets/text_input_field.dart';
-import '../Idea Hub/ideahub_homepage.dart';
 import 'package:startupadda/categorypage.dart';
 
 class IdeaHubLoginScreen extends StatefulWidget {
@@ -54,98 +53,110 @@ class _IdeaHubLoginScreenState extends State<IdeaHubLoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
-          width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                child: Container(),
-                flex: 2,
-              ),
-              const Text(
-                'Login',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.blue,
+              Colors.red,
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Flexible(
+                  child: Container(),
+                  flex: 2,
                 ),
-              ),
-              const SizedBox(height: 45),
-              TextInputField(
-                labelText: 'enter your email',
-                controller: _emailController,
-                icon: Icons.mail_rounded,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              passFieldInput(
-                hintText: 'Enter your password ',
-                textInputType: TextInputType.text,
-                textEditingController: _passwordController,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              InkWell(
-                onTap: loginUser,
-                child: Container(
-                  child: !_isLoading
-                      ? const Text(
-                    'Log in',
-                  )
-                      : const CircularProgressIndicator(
-                    color: Colors.white,
-                  ),
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: ShapeDecoration(
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
-                    ),
-                    color: buttonColor,
+                const Text(
+                  'Login',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              Flexible(
-                flex: 2,
-                child: Container(),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    child: const Text(
-                      'Dont have an account?',
+                const SizedBox(height: 45),
+                TextInputField(
+                  labelText: 'enter your email',
+                  controller: _emailController,
+                  icon: Icons.mail_rounded,
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                passFieldInput(
+                  hintText: 'Enter your password ',
+                  textInputType: TextInputType.text,
+                  textEditingController: _passwordController,
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                InkWell(
+                  onTap: loginUser,
+                  child: Container(
+                    child: !_isLoading
+                        ? const Text(
+                      'Log in',
+                    )
+                        : const CircularProgressIndicator(
+                      color: Colors.white,
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                  ),
-                  GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => IdeaHubSignupScreen(),
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    decoration: ShapeDecoration(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4)),
                       ),
+                      color: buttonColor,
                     ),
-                    child:  Container(
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Flexible(
+                  flex: 2,
+                  child: Container(),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      child: const Text(
+                        'Dont have an account?',
+                      ),
                       padding: const EdgeInsets.symmetric(vertical: 8),
-                      child:  const Text(
-                        ' Signup.',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                    ),
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => IdeaHubSignupScreen(),
+                        ),
+                      ),
+                      child:  Container(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child:  const Text(
+                          ' Signup.',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10,)
-            ],
+                  ],
+                ),
+                const SizedBox(height: 10,)
+              ],
+            ),
           ),
         ),
       ),

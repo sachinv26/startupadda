@@ -1,4 +1,3 @@
-
 import './auth_screens/login_register_query.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -6,14 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'firebase/firebase_options.dart';
 import 'categorypage.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -31,8 +27,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
 
 class MyhomePage extends StatefulWidget {
   const MyhomePage({Key? key}) : super(key: key);
@@ -62,77 +56,95 @@ class _MyhomePageState extends State<MyhomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Expanded(
-                child: PageView.builder(
-                  itemCount: demo_data.length,
-                  controller: _pageController,
-                  onPageChanged: (index) {
-                    setState(() {
-                      _pageIndex=index;
-                    });
-                  },
-                  itemBuilder: (context, index) => OnboardContent(
-                    image: demo_data[index].image,
-                    title: demo_data[index].title,
-                    description: demo_data[index].description,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.blue,
+              Colors.red,
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Expanded(
+                  child: PageView.builder(
+                    itemCount: demo_data.length,
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _pageIndex = index;
+                      });
+                    },
+                    itemBuilder: (context, index) => OnboardContent(
+                      image: demo_data[index].image,
+                      title: demo_data[index].title,
+                      description: demo_data[index].description,
+                    ),
                   ),
                 ),
-              ),
-              Row(
-                children: [
-                  ...List.generate(
-                    demo_data.length,
-                    (index) =>Padding(
-                      padding: const EdgeInsets.only(right: 4),
-                      child: DotIndicator(
-                        isActive: index==_pageIndex,
+                Row(
+                  children: [
+                    ...List.generate(
+                      demo_data.length,
+                      (index) => Padding(
+                        padding: const EdgeInsets.only(right: 4),
+                        child: DotIndicator(
+                          isActive: index == _pageIndex,
+                        ),
                       ),
                     ),
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    height: 60,
-                    width: 100,
-                    child: ElevatedButton(
-                      onPressed: () {
-                          Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginRegisterPage()));
-                      },
-                      child: Text('Lets Go'),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),),
+                    const Spacer(),
+                    SizedBox(width: 25,),
+                    SizedBox(
+                      height: 60,
+                      width: 100,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginRegisterPage()));
+                        },
+                        child: Text('Lets Go'),
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    height: 60,
-                    width: 60,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _pageController.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.ease);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                      ),
-                      child: Image.asset(
-                        "assets/images/rightarrow.png",
-                        color: Colors.white,
+                    const Spacer(),
+                    SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _pageController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.ease);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: const CircleBorder(),
+                        ),
+                        child: Image.asset(
+                          "assets/images/rightarrow.png",
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              )
-            ],
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -154,7 +166,7 @@ class DotIndicator extends StatelessWidget {
       height: isActive ? 12 : 4,
       width: 4,
       decoration: BoxDecoration(
-        color: isActive? Colors.red : Colors.red.withOpacity(0.4),
+        color: isActive ? Colors.red : Colors.red.withOpacity(0.4),
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -171,16 +183,17 @@ class Onboard {
 final List<Onboard> demo_data = [
   Onboard(
       image: "assets/images/Startup1.png",
-      title: "We Have the plan to grow your business",
-      description: "first description"),
+      title: "A radical new way of Venture",
+      description:
+          "Seek out oppurtunities and grab the one that's best for you"),
   Onboard(
       image: "assets/images/Startup1.png",
-      title: "second title",
-      description: "second description"),
+      title: "Invest with us, Grow with us",
+      description: "Invest your assests in one place,the right place"),
   Onboard(
       image: "assets/images/Startup1.png",
-      title: "third title",
-      description: "third description"),
+      title: "An Entreprenuerial Paradise",
+      description: "A platform to use your skills and achieve your goals"),
 ];
 
 class OnboardContent extends StatelessWidget {
