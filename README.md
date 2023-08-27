@@ -15,19 +15,19 @@ Run the following commands from your terminal:
 <table width="100%">
   <tbody>
     <tr>
-      <td width="1%"><img src="https://github.com/sachinv26/fraudrader/assets/76443132/e3edc098-3483-4a73-a015-013be9b3024c"/></td>
-      <td width="1%"><img src="https://github.com/sachinv26/fraudrader/assets/76443132/060070c5-d9e3-44da-b03c-bd0c8ce87c07"/></td>
-       <td width="1%"><img src="https://github.com/sachinv26/fraudrader/assets/76443132/6715e3c1-2ab8-4b2b-973e-244d08927d63"/></td>
+      <td width="1%"><img src="https://github.com/sachinv26/startupadda/assets/76443132/229b3c1a-9844-4852-9859-dafbab5eb809"/></td>
+      <td width="1%"><img src="https://github.com/sachinv26/startupadda/assets/76443132/b9f8b138-a8ab-4d05-a1d8-6a24148d650a"/></td>
+       <td width="1%"><img src="https://github.com/sachinv26/startupadda/assets/76443132/e0cf2de2-7d24-4ef8-9f80-e08768974c36"/></td>
     </tr>
     <tr>
-      <td width="1%"><img src="https://github.com/sachinv26/fraudrader/assets/76443132/d7ca4a9b-0a91-4db9-b4ec-8cd9b76ab07b"/></td>
-      <td width="1%"><img src="https://github.com/sachinv26/fraudrader/assets/76443132/fc9df235-963e-4cad-ad62-3a70acf97c26"/></td>
-       <td width="1%"><img src="https://github.com/sachinv26/fraudrader/assets/76443132/33b4f14c-750c-4a83-be15-53e45007045d"/></td>
+      <td width="1%"><img src="https://github.com/sachinv26/startupadda/assets/76443132/eda1625d-7a0c-4e12-8340-554ee222e5cf"/></td>
+      <td width="1%"><img src="https://github.com/sachinv26/startupadda/assets/76443132/8091e7d3-a343-461f-90cd-a733417c3908"/></td>
+       <td width="1%"><img src="https://github.com/sachinv26/startupadda/assets/76443132/e6892704-fefb-4ae5-913a-b78f125050ed"/></td>
     </tr>
     <tr>
-      <td width="1%"><img src="https://github.com/sachinv26/fraudrader/assets/76443132/31a46d12-0817-49a1-94cc-d2c5a1285745"/></td>
-      <td width="1%"><img src="https://github.com/sachinv26/fraudrader/assets/76443132/d0fa2f30-b088-4535-a773-18383c62901c"/></td>
-       <td width="1%"><img src="https://github.com/sachinv26/fraudrader/assets/76443132/b7dcfe56-e033-4a4e-b64d-654e8a4181f6"/></td>
+      <td width="1%"><img src="https://github.com/sachinv26/startupadda/assets/76443132/24d3630a-5adf-4778-9111-e2ebbffae1eb"/></td>
+      <td width="1%"><img src="https://github.com/sachinv26/startupadda/assets/76443132/41531713-addb-4618-ac0d-afccb2f1bd16"/></td>
+       <td width="1%"><img src="https://github.com/sachinv26/startupadda/assets/76443132/0b7c76ee-3695-409f-872c-5038b7c9cd13"/></td>
     </tr>
   </tbody>
 </table>
